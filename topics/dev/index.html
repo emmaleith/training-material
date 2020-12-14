@@ -6,19 +6,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Galaxy Training!</title>
         
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-            ga('create', 'UA-45719423-18' , 'auto');
-            ga('send', 'pageview');
-        </script>
+            <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', '' , 'auto');
+    ga('send', 'pageview');
+</script>
+
+<script async defer data-domain="training.galaxyproject.org" src="https://plausible.galaxyproject.eu/js/plausible.js"></script>
         
         <link rel="stylesheet" href="/training-material/assets/css/bootstrap.min.css?v=3">
         <link rel="stylesheet" href="/training-material/assets/css/bootstrap-toc.min.css">
         <link rel="stylesheet" href="/training-material/assets/css/main.css?v=2">
-        <link rel="stylesheet" href="/training-material/assets/css/font-awesome.css">
+        <script src="https://kit.fontawesome.com/67b3f98409.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/training-material/assets/css/academicons.css">
         <link rel="stylesheet" href="/training-material/assets/css/syntax_highlighting.css">
         <link rel="shortcut icon" href="/training-material/favicon.ico" type="image/x-icon" />
@@ -48,13 +50,18 @@
             <div class="collapse navbar-collapse" id="top-navbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
+                         <a class="nav-link" href="/training-material/hall-of-fame" title="Hall of Fame">
+                            <i class="fas fa-users" aria-hidden="true"></i><span class="visually-hidden">hall-of-fame</span> Contributors
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="https://github.com/galaxyproject/training-material" title="View on GitHub">
-                            <i class="fa fa-github" aria-hidden="true"></i><span class="visually-hidden">github</span> View on GitHub
+                            <i class="fab fa-github" aria-hidden="true"></i><span class="visually-hidden">github</span> View on GitHub
                         </a>
                     </li>
                     <li class="nav-item dropdown">
     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" title="Help">
-        <i class="fa fa-life-ring" aria-hidden="true"></i><span class="visually-hidden">help</span> Help
+        <i class="far fa-question-circle" aria-hidden="true"></i><span class="visually-hidden">help</span> Help
     </a>
     <div class="dropdown-menu dropdown-menu-right">
         <form method="get" action="https://tess.elixir-europe.org/materials">
@@ -67,15 +74,50 @@
         <a class="dropdown-item" href="/training-material/faq" title="Check our FAQ">
             FAQ
         </a>
-        <a class="dropdown-item" href="https://gitter.im/Galaxy-Training-Network/Lobby" title="Chat on Gitter">
-            Chat on Gitter
-        </a>
         <a class="dropdown-item" href="https://help.galaxyproject.org/" title="Discuss on Galaxy Help">
             Discuss on Galaxy Help
         </a>
+
+        <div class="dropdown-item">
+            <div>
+                Theme
+            </div>
+
+            <div id="theme-selector" data-toggle="buttons">
+                <label data-value="default" class="btn btn-secondary">
+                    <input type="radio" name="options" id="default" autocomplete="off"> Default
+                </label>
+                <label data-value="night" class="btn btn-secondary">
+                    <input type="radio" name="options" id="night" autocomplete="off"> Night
+                </label>
+                <label data-value="midnight" class="btn btn-secondary">
+                    <input type="radio" name="options" id="midnight" autocomplete="off"> Midnight
+                </label>
+                <label data-value="rainbow" class="btn btn-secondary">
+                    <input type="radio" name="options" id="rainbow" autocomplete="off"> Rainbow
+                </label>
+                <label data-value="halloween" class="btn btn-secondary">
+                    <input type="radio" name="options" id="halloween" autocomplete="off"> 🎃
+                </label>
+            </div>
+
+        </div>
     </div>
 </li>
 
+
+                    <!-- Search bar-->
+                    <li class="nav-item">
+                      <div id="navbarSupportedContent">
+                        <!-- Search form -->
+                        <form class="form-inline mr-auto" method="GET" action="/training-material/search">
+                          <i class="fas fa-search nav-link" aria-hidden="true"></i>
+                          <div class="md-form mb-2">
+                            <input name="query" class="form-control nicer" type="text" placeholder="Search Tutorials" aria-label="Search">
+                          </div>
+                        </form>
+                      </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -89,1248 +131,1032 @@
 
 
 
+
+<!-- Gitter -->
+
+
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+  room: 'galaxyproject/dev'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
 <div class="container main-content">
-    <section>
+	<section class="tutorials-list dev topic-type-admin-dev">
         <h1>Development in Galaxy</h1>
         <p>Galaxy is an open-source project. Everyone can contribute to its development with core Galaxy development, integration of softwares in Galaxy environment, ...</p>
 
         
 
-        <h2 id="material">Material</h2>
-        <table class="table table-responsive table-striped">
-            <tr>
-                <th>Lesson</th>
-                <th>Slides</th>
-                <th>Hands-on</th>
+        <div id="tutorial_list">
+            <h2 id="material">Material</h2>
+            
+            <div class="search_box">
+                <i class="fas fa fa-search" aria-hidden="true"></i><span class="visually-hidden">search</span>
+                <input data-search-type="tutorial_title" class="search" id="tutorial_search" placeholder="Search" />
+                <span id="clear_search" title="Clear filters"> <i class="fas fa-times" aria-hidden="true"></i><span class="visually-hidden">galaxy-cross</span> </span>
+            </div>
+            
+            
+               <table class="table table-responsive table-striped" >
+  <thead>
+    <tr>
+      <th>Lesson</th>
+      <th>Slides</th>
+      <th>Hands-on</th>
 
-                
+      
 
-                
-            </tr>
+      
+    </tr>
+  </thead>
+  <tbody class="list">
+
+  
+    
+
+    
+      
+        <tr>
+          <td class="tutorial_title">
+          Galaxy from a developer point of view
+          <div class="">
+          
+          
+          </div>
+          </td>
+          
+            <td>
+            
+              <span class="btn-group">
+                <a class="btn btn-default topic-icon" href="/training-material/topics/dev/slides/introduction.html">
+                    <i class="fab fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
+                </a>
+                <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="sr-only">Toggle Dropdown</span>
+                </a>
+                <ul class="dropdown-menu">
+                  
+                    <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Fslides%2Fintroduction.html&edit-text=&act=url" title="">
+                      Français
+                    </a>
+                  
+                    <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Fslides%2Fintroduction.html&edit-text=&act=url" title="">
+                      日本語
+                    </a>
+                  
+                    <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Fslides%2Fintroduction.html&edit-text=&act=url" title="">
+                      Español
+                    </a>
+                  
+                    <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Fslides%2Fintroduction.html&edit-text=&act=url" title="">
+                      Português
+                    </a>
+                  
+                    <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Fslides%2Fintroduction.html&edit-text=&act=url" title="">
+                      العربية
+                    </a>
+                  
+                  <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Fslides%2Fintroduction.html&edit-text=&act=url" title="">
+                      And more!
+                  </a>
+                </ul>
+              </span>
+            
+            </td>
+            <td></td>
+            
+            
+          
+         </tr>
+         
+       
+    
+    
+
+    
+      
+        <tr>
+          <td class="tutorial_title">
+          Data source integration
+          <div class="">
+          
+          
+          </div>
+          </td>
+          
+            <td> 
+
+ </td>
+            <td> 
+    <span class="btn-group">
+        <a href="/training-material/topics/dev/tutorials/data-source-integration/tutorial.html" class="btn btn-default" title="Follow the tutorial">
+            <i class="fas fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Follow the tutorial in a different language">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fdata-source-integration%2Ftutorial.html&edit-text=&act=url" title="">
+                Français
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fdata-source-integration%2Ftutorial.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fdata-source-integration%2Ftutorial.html&edit-text=&act=url" title="">
+                Español
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fdata-source-integration%2Ftutorial.html&edit-text=&act=url" title="">
+                Português
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fdata-source-integration%2Ftutorial.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+        
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fdata-source-integration%2Ftutorial.html&edit-text=&act=url" title="">
+            And more!
+        </a>
+    </span>
+
+ </td>
 
             
-                
-                        <script type="application/ld+json">
-                            
-{
-  "@context": "http://schema.org",
-  "@type": "CreativeWork",
-  "name": "Galaxy from a developer point of view",
-  "accessModeSufficient": "visual",
-  "accessibilityControl": "fullMouseControl",
-  "accessibilityFeature": [
-    "alternativeText",
-    "tableOfContents"
-  ],
-  "audience": {
-    "@type": "EducationalAudience",
-    "educationalRole": "students"
-  },
-  "inLanguage": {
-    "@type": "Language",
-    "name": "English",
-    "alternateName": "en"
-  },
-  "interactivityType": "mixed",
-  "isAccessibleForFree": true,
-  "license": "https://github.com/galaxyproject/training-material/blob/master/LICENSE.md",
-  "learningResourceType": "introduction",
-  "url": "",
-  "mentions": [
-
-  ],
-  "contributor": [
-    {
-      "@type": "Person",
-      "name": "bebatut"
-    }
-  ]
-}
-
-                        </script>
-                    <tr>
-                        <td>
-                            Galaxy from a developer point of view
-                            
-                        </td>
-                        
-                            <td>
-                                
-                                <a class="topic-icon" href="/training-material/topics/dev/slides/introduction.html">
-                                  <i class="fa fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
-                                </a>
-                                
-                            </td>
-                            <td></td>
-                            
-                            
-                        
-                    </tr>
-                
             
-                
-                        <script type="application/ld+json">
-                            
-{
-  "@context": "http://schema.org",
-  "@type": "CreativeWork",
-  "name": "BioBlend module, a Python library to use Galaxy API",
-  "accessModeSufficient": "visual",
-  "accessibilityControl": "fullMouseControl",
-  "accessibilityFeature": [
-    "alternativeText",
-    "tableOfContents"
-  ],
-  "audience": {
-    "@type": "EducationalAudience",
-    "educationalRole": "students"
-  },
-  "inLanguage": {
-    "@type": "Language",
-    "name": "English",
-    "alternateName": "en"
-  },
-  "interactivityType": "mixed",
-  "isAccessibleForFree": true,
-  "license": "https://github.com/galaxyproject/training-material/blob/master/LICENSE.md",
-  "learningResourceType": "tutorial",
-  "url": "",
-  "mentions": [
-    {
-      "@type": "Thing",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/bioblend-api/workflows/",
-      "name": "Workflow for BioBlend module, a Python library to use Galaxy API tutorial"
-    }
-  ],
-  "timeRequired": "PT2H",
-  "contributor": [
-    {
-      "@type": "Person",
-      "name": "odoppelt"
-    },
-    {
-      "@type": "Person",
-      "name": "fmareuil"
-    }
-  ],
-  "description": "The questions this tutorial addresses are:\n - What is the use of BioBlend?\n - How to use Galaxy through command line?\n\n\\nThe objectives are:\n - Get familiar with BioBlend using IPython\n - Launch a Galaxy job / Visualize your actions with Galaxy\n - Launch a Galaxy workflow / Visualize your actions with Galaxy\n\n",
-  "hasPart": [
-    {
-      "@type": "CreativeWork",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/bioblend-api/tours/",
-      "name": "Slides for BioBlend module, a Python library to use Galaxy API",
-      "learningResourceType": "slides",
-      "interactivityType": "expositive"
-    }
-  ]
-}
+          
+         </tr>
+         
+       
+    
+    
 
-                        </script>
-                    <tr>
-                        <td>
-                            BioBlend module, a Python library to use Galaxy API
-                            
-                        </td>
-                        
-                            <td>
-                                
-                                    <a class="topic-icon" href="/training-material/topics/dev/tutorials/bioblend-api/slides.html">
-                                    <i class="fa fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
-                                </a>
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
+    
+      
+        <tr>
+          <td class="tutorial_title">
+          Galaxy Code Architecture
+          <div class="">
+          
+          
+          </div>
+          </td>
+          
+            <td> 
+    <span class="btn-group">
+        <a class="btn btn-default topic-icon" href="/training-material/topics/dev/tutorials/architecture/slides.html">
+            <i class="fab fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Farchitecture%2Fslides.html&edit-text=&act=url" title="">
+                Français
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Farchitecture%2Fslides.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Farchitecture%2Fslides.html&edit-text=&act=url" title="">
+                Español
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Farchitecture%2Fslides.html&edit-text=&act=url" title="">
+                Português
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Farchitecture%2Fslides.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+        
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Farchitecture%2Fslides.html&edit-text=&act=url" title="">
+            And more!
+        </a>
+    </ul>
+    </span>
 
-                            
 
-                            
-                        
-                    </tr>
-                
+ </td>
+            <td> 
+ </td>
+
             
-                
             
-                
-                        <script type="application/ld+json">
-                            
-{
-  "@context": "http://schema.org",
-  "@type": "CreativeWork",
-  "name": "Galaxy Code Architecture",
-  "accessModeSufficient": "visual",
-  "accessibilityControl": "fullMouseControl",
-  "accessibilityFeature": [
-    "alternativeText",
-    "tableOfContents"
-  ],
-  "audience": {
-    "@type": "EducationalAudience",
-    "educationalRole": "students"
-  },
-  "inLanguage": {
-    "@type": "Language",
-    "name": "English",
-    "alternateName": "en"
-  },
-  "interactivityType": "mixed",
-  "isAccessibleForFree": true,
-  "license": "https://github.com/galaxyproject/training-material/blob/master/LICENSE.md",
-  "learningResourceType": "tutorial",
-  "url": "",
-  "mentions": [
-    {
-      "@type": "Thing",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/architecture/workflows/",
-      "name": "Workflow for Galaxy Code Architecture tutorial"
-    }
-  ],
-  "timeRequired": "PT150M",
-  "contributor": [
-    {
-      "@type": "Person",
-      "name": "jmchilton"
-    },
-    {
-      "@type": "Person",
-      "name": "bgruening"
-    }
-  ],
-  "description": "The questions this tutorial addresses are:\n - How is the Galaxy code structured?\n - What do the various other projects related to Galaxy do?\n - What happens when I start Galaxy?\n\n\\nThe objectives are:\n - Explore various aspects of the Galaxy codebase.\n - Understand the various top-level files and modules in Galaxy.\n - Understand how dependencies work in Galaxy's frontend and backend.\n\n",
-  "hasPart": [
-    {
-      "@type": "CreativeWork",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/architecture/tours/",
-      "name": "Slides for Galaxy Code Architecture",
-      "learningResourceType": "slides",
-      "interactivityType": "expositive"
-    }
-  ]
-}
+          
+         </tr>
+         
+       
+    
+    
 
-                        </script>
-                    <tr>
-                        <td>
-                            Galaxy Code Architecture
-                            
-                        </td>
-                        
-                            <td>
-                                
-                                    <a class="topic-icon" href="/training-material/topics/dev/tutorials/architecture/slides.html">
-                                    <i class="fa fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
-                                </a>
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
+    
+      
+        <tr>
+          <td class="tutorial_title">
+          Galaxy Interactive Environments
+          <div class="">
+          
+          
+          </div>
+          </td>
+          
+            <td> 
+    <span class="btn-group">
+        <a class="btn btn-default topic-icon" href="/training-material/topics/dev/tutorials/interactive-environments/slides.html">
+            <i class="fab fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Finteractive-environments%2Fslides.html&edit-text=&act=url" title="">
+                Français
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Finteractive-environments%2Fslides.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Finteractive-environments%2Fslides.html&edit-text=&act=url" title="">
+                Español
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Finteractive-environments%2Fslides.html&edit-text=&act=url" title="">
+                Português
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Finteractive-environments%2Fslides.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+        
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Finteractive-environments%2Fslides.html&edit-text=&act=url" title="">
+            And more!
+        </a>
+    </ul>
+    </span>
 
-                            
 
-                            
-                        
-                    </tr>
-                
+ </td>
+            <td> 
+ </td>
+
             
-                
-                        <script type="application/ld+json">
-                            
-{
-  "@context": "http://schema.org",
-  "@type": "CreativeWork",
-  "name": "Galaxy Interactive Environments",
-  "accessModeSufficient": "visual",
-  "accessibilityControl": "fullMouseControl",
-  "accessibilityFeature": [
-    "alternativeText",
-    "tableOfContents"
-  ],
-  "audience": {
-    "@type": "EducationalAudience",
-    "educationalRole": "students"
-  },
-  "inLanguage": {
-    "@type": "Language",
-    "name": "English",
-    "alternateName": "en"
-  },
-  "interactivityType": "mixed",
-  "isAccessibleForFree": true,
-  "license": "https://github.com/galaxyproject/training-material/blob/master/LICENSE.md",
-  "learningResourceType": "tutorial",
-  "url": "",
-  "mentions": [
-    {
-      "@type": "Thing",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/interactive-environments/workflows/",
-      "name": "Workflow for Galaxy Interactive Environments tutorial"
-    }
-  ],
-  "timeRequired": "PT90M",
-  "contributor": [
-    {
-      "@type": "Person",
-      "name": "shiltemann"
-    },
-    {
-      "@type": "Person",
-      "name": "bgruening"
-    },
-    {
-      "@type": "Person",
-      "name": "erasche"
-    }
-  ],
-  "description": "The questions this tutorial addresses are:\n - What are Galaxy Interactive Environments (GIEs)?\n - How to enable GIEs in Galaxy?\n - How to develop your own GIE?\n\n\\nThe objectives are:\n - Implement a Hello-World Galaxy Interactive Environment\n\n",
-  "hasPart": [
-    {
-      "@type": "CreativeWork",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/interactive-environments/tours/",
-      "name": "Slides for Galaxy Interactive Environments",
-      "learningResourceType": "slides",
-      "interactivityType": "expositive"
-    }
-  ]
-}
-
-                        </script>
-                    <tr>
-                        <td>
-                            Galaxy Interactive Environments
-                            
-                        </td>
-                        
-                            <td>
-                                
-                                    <a class="topic-icon" href="/training-material/topics/dev/tutorials/interactive-environments/slides.html">
-                                    <i class="fa fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
-                                </a>
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-
-                            
-
-                            
-                        
-                    </tr>
-                
             
-                
-                        <script type="application/ld+json">
-                            
-{
-  "@context": "http://schema.org",
-  "@type": "CreativeWork",
-  "name": "Galaxy Interactive Tours",
-  "accessModeSufficient": "visual",
-  "accessibilityControl": "fullMouseControl",
-  "accessibilityFeature": [
-    "alternativeText",
-    "tableOfContents"
-  ],
-  "audience": {
-    "@type": "EducationalAudience",
-    "educationalRole": "students"
-  },
-  "inLanguage": {
-    "@type": "Language",
-    "name": "English",
-    "alternateName": "en"
-  },
-  "interactivityType": "mixed",
-  "isAccessibleForFree": true,
-  "license": "https://github.com/galaxyproject/training-material/blob/master/LICENSE.md",
-  "learningResourceType": "tutorial",
-  "url": "",
-  "mentions": [
-    {
-      "@type": "Thing",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/interactive-tours/workflows/",
-      "name": "Workflow for Galaxy Interactive Tours tutorial"
-    }
-  ],
-  "timeRequired": "PT3H",
-  "contributor": [
-    {
-      "@type": "Person",
-      "name": "bebatut"
-    },
-    {
-      "@type": "Person",
-      "name": "bgruening"
-    }
-  ],
-  "description": "The questions this tutorial addresses are:\n - What is a Galaxy Interactive Tour?\n - How to create a Galaxy Interactive Tour?\n\n\\nThe objectives are:\n - Discover what is a Galaxy Interactive Tour\n - Be able to create a Galaxy Interactive Tour\n - Be able to add a Galaxy Interactive Tour in a Galaxy instance\n\n",
-  "hasPart": [
-    {
-      "@type": "CreativeWork",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/interactive-tours/tours/",
-      "name": "Slides for Galaxy Interactive Tours",
-      "learningResourceType": "slides",
-      "interactivityType": "expositive"
-    }
-  ]
-}
+          
+         </tr>
+         
+       
+    
+    
 
-                        </script>
-                    <tr>
-                        <td>
-                            Galaxy Interactive Tours
-                            
-                        </td>
-                        
-                            <td>
-                                
-                                    <a class="topic-icon" href="/training-material/topics/dev/tutorials/interactive-tours/slides.html">
-                                    <i class="fa fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
-                                </a>
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
+    
+      
+        <tr>
+          <td class="tutorial_title">
+          Galaxy Interactive Tours
+          <div class="">
+          
+          
+          </div>
+          </td>
+          
+            <td> 
+    <span class="btn-group">
+        <a class="btn btn-default topic-icon" href="/training-material/topics/dev/tutorials/interactive-tours/slides.html">
+            <i class="fab fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Finteractive-tours%2Fslides.html&edit-text=&act=url" title="">
+                Français
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Finteractive-tours%2Fslides.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Finteractive-tours%2Fslides.html&edit-text=&act=url" title="">
+                Español
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Finteractive-tours%2Fslides.html&edit-text=&act=url" title="">
+                Português
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Finteractive-tours%2Fslides.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+        
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Finteractive-tours%2Fslides.html&edit-text=&act=url" title="">
+            And more!
+        </a>
+    </ul>
+    </span>
 
-                            
 
-                            
-                        
-                    </tr>
-                
+ </td>
+            <td> 
+ </td>
+
             
-                
-                        <script type="application/ld+json">
-                            
-{
-  "@context": "http://schema.org",
-  "@type": "CreativeWork",
-  "name": "Galaxy Webhooks",
-  "accessModeSufficient": "visual",
-  "accessibilityControl": "fullMouseControl",
-  "accessibilityFeature": [
-    "alternativeText",
-    "tableOfContents"
-  ],
-  "audience": {
-    "@type": "EducationalAudience",
-    "educationalRole": "students"
-  },
-  "inLanguage": {
-    "@type": "Language",
-    "name": "English",
-    "alternateName": "en"
-  },
-  "interactivityType": "mixed",
-  "isAccessibleForFree": true,
-  "license": "https://github.com/galaxyproject/training-material/blob/master/LICENSE.md",
-  "learningResourceType": "tutorial",
-  "url": "",
-  "mentions": [
-    {
-      "@type": "Thing",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/webhooks/workflows/",
-      "name": "Workflow for Galaxy Webhooks tutorial"
-    }
-  ],
-  "timeRequired": "PT1H",
-  "contributor": [
-    {
-      "@type": "Person",
-      "name": "blankclemens"
-    },
-    {
-      "@type": "Person",
-      "name": "martenson"
-    },
-    {
-      "@type": "Person",
-      "name": "bgruening"
-    }
-  ],
-  "description": "The questions this tutorial addresses are:\n - What are Galaxy Webhooks?\n - How to create them?\n\n\\nThe objectives are:\n - Discover what Galaxy Webhooks are\n - Be able to create Webhooks\n - Be able to add a Galaxy Webhook in a Galaxy instance\n\n",
-  "hasPart": [
-    {
-      "@type": "CreativeWork",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/webhooks/tours/",
-      "name": "Slides for Galaxy Webhooks",
-      "learningResourceType": "slides",
-      "interactivityType": "expositive"
-    }
-  ]
-}
-
-                        </script>
-                    <tr>
-                        <td>
-                            Galaxy Webhooks
-                            
-                        </td>
-                        
-                            <td>
-                                
-                                    <a class="topic-icon" href="/training-material/topics/dev/tutorials/webhooks/slides.html">
-                                    <i class="fa fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
-                                </a>
-                                
-                            </td>
-                            <td>
-                                
-                                    <span class="btn-group">
-                                        <a href="/training-material/topics/dev/tutorials/webhooks/tutorial.html" class="btn btn-default" title="Where to run the tutorial">
-                                            <i class="fa fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
-                                        </a>
-                                        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                        
-                                            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fwebhooks%2Ftutorial.html&edit-text=&act=url" title="">
-                                                FR
-                                            </a>
-                                        
-                                            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fwebhooks%2Ftutorial.html&edit-text=&act=url" title="">
-                                                JA
-                                            </a>
-                                        
-                                            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fwebhooks%2Ftutorial.html&edit-text=&act=url" title="">
-                                                ES
-                                            </a>
-                                        
-                                            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fwebhooks%2Ftutorial.html&edit-text=&act=url" title="">
-                                                PT
-                                            </a>
-                                        
-                                            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fwebhooks%2Ftutorial.html&edit-text=&act=url" title="">
-                                                AR
-                                            </a>
-                                        
-                                    </span>
-                                
-                            </td>
-
-                            
-
-                            
-                        
-                    </tr>
-                
             
-                
-                        <script type="application/ld+json">
-                            
-{
-  "@context": "http://schema.org",
-  "@type": "CreativeWork",
-  "name": "Prerequisites for building software/conda packages",
-  "accessModeSufficient": "visual",
-  "accessibilityControl": "fullMouseControl",
-  "accessibilityFeature": [
-    "alternativeText",
-    "tableOfContents"
-  ],
-  "audience": {
-    "@type": "EducationalAudience",
-    "educationalRole": "students"
-  },
-  "inLanguage": {
-    "@type": "Language",
-    "name": "English",
-    "alternateName": "en"
-  },
-  "interactivityType": "mixed",
-  "isAccessibleForFree": true,
-  "license": "https://github.com/galaxyproject/training-material/blob/master/LICENSE.md",
-  "learningResourceType": "tutorial",
-  "url": "",
-  "mentions": [
-    {
-      "@type": "Thing",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/conda_sys/workflows/",
-      "name": "Workflow for Prerequisites for building software/conda packages tutorial"
-    }
-  ],
-  "timeRequired": "PT1H",
-  "contributor": [
-    {
-      "@type": "Person",
-      "name": "abretaud"
-    },
-    {
-      "@type": "Person",
-      "name": "cmonjeau"
-    }
-  ],
-  "description": "The questions this tutorial addresses are:\n - What does 'installing a software' means on a Linux architecture?\n - Why my compilations always fail?\n - How to solve common compiling and installation issues?\n\n\\nThe objectives are:\n - Learn how to compile and install tools using standard procedures.\n - Learn needed tricks to write conda build.sh files.\n\n",
-  "hasPart": [
-    {
-      "@type": "CreativeWork",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/conda_sys/tours/",
-      "name": "Slides for Prerequisites for building software/conda packages",
-      "learningResourceType": "slides",
-      "interactivityType": "expositive"
-    }
-  ]
-}
+          
+         </tr>
+         
+       
+    
+    
 
-                        </script>
-                    <tr>
-                        <td>
-                            Prerequisites for building software/conda packages
-                            
-                        </td>
-                        
-                            <td>
-                                
-                                    <a class="topic-icon" href="/training-material/topics/dev/tutorials/conda_sys/slides.html">
-                                    <i class="fa fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
-                                </a>
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
+    
+      
+        <tr>
+          <td class="tutorial_title">
+          Galaxy Webhooks
+          <div class="">
+          
+          
+          </div>
+          </td>
+          
+            <td> 
+    <span class="btn-group">
+        <a class="btn btn-default topic-icon" href="/training-material/topics/dev/tutorials/webhooks/slides.html">
+            <i class="fab fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fwebhooks%2Fslides.html&edit-text=&act=url" title="">
+                Français
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fwebhooks%2Fslides.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fwebhooks%2Fslides.html&edit-text=&act=url" title="">
+                Español
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fwebhooks%2Fslides.html&edit-text=&act=url" title="">
+                Português
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fwebhooks%2Fslides.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+        
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fwebhooks%2Fslides.html&edit-text=&act=url" title="">
+            And more!
+        </a>
+    </ul>
+    </span>
 
-                            
 
-                            
-                        
-                    </tr>
-                
+ </td>
+            <td> 
+    <span class="btn-group">
+        <a href="/training-material/topics/dev/tutorials/webhooks/tutorial.html" class="btn btn-default" title="Follow the tutorial">
+            <i class="fas fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Follow the tutorial in a different language">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fwebhooks%2Ftutorial.html&edit-text=&act=url" title="">
+                Français
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fwebhooks%2Ftutorial.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fwebhooks%2Ftutorial.html&edit-text=&act=url" title="">
+                Español
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fwebhooks%2Ftutorial.html&edit-text=&act=url" title="">
+                Português
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fwebhooks%2Ftutorial.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+        
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fwebhooks%2Ftutorial.html&edit-text=&act=url" title="">
+            And more!
+        </a>
+    </span>
+
+ </td>
+
             
-                
-                        <script type="application/ld+json">
-                            
-{
-  "@context": "http://schema.org",
-  "@type": "CreativeWork",
-  "name": "Tool Dependencies and Conda",
-  "accessModeSufficient": "visual",
-  "accessibilityControl": "fullMouseControl",
-  "accessibilityFeature": [
-    "alternativeText",
-    "tableOfContents"
-  ],
-  "audience": {
-    "@type": "EducationalAudience",
-    "educationalRole": "students"
-  },
-  "inLanguage": {
-    "@type": "Language",
-    "name": "English",
-    "alternateName": "en"
-  },
-  "interactivityType": "mixed",
-  "isAccessibleForFree": true,
-  "license": "https://github.com/galaxyproject/training-material/blob/master/LICENSE.md",
-  "learningResourceType": "tutorial",
-  "url": "",
-  "mentions": [
-    {
-      "@type": "Thing",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/conda/workflows/",
-      "name": "Workflow for Tool Dependencies and Conda tutorial"
-    }
-  ],
-  "timeRequired": "PT75M",
-  "contributor": [
-    {
-      "@type": "Person",
-      "name": "nsoranzo"
-    },
-    {
-      "@type": "Person",
-      "name": "jmchilton"
-    },
-    {
-      "@type": "Person",
-      "name": "bgruening"
-    },
-    {
-      "@type": "Person",
-      "name": "hmenager"
-    }
-  ],
-  "description": "The questions this tutorial addresses are:\n - How can I connect tools to applications and libraries?\n - What are the advantages of declaring dependencies for my tool?\n - What are Conda and Bioconda?\n - What are Conda recipes and environments?\n - How do I find and use existing Conda recipes?\n - How do I develop Conda recipes for use within Galaxy tools?\n\n\\nThe objectives are:\n - Learn to use existing Conda recipes to enable best practice tool dependency management in Galaxy.\n - Learn the basics of building Conda recipes and contributing to Bioconda.\n - Learn to use Planemo to assist in developing Galaxy tools from existing and new Conda recipes.\n\n",
-  "hasPart": [
-    {
-      "@type": "CreativeWork",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/conda/tours/",
-      "name": "Slides for Tool Dependencies and Conda",
-      "learningResourceType": "slides",
-      "interactivityType": "expositive"
-    }
-  ]
-}
-
-                        </script>
-                    <tr>
-                        <td>
-                            Tool Dependencies and Conda
-                            
-                        </td>
-                        
-                            <td>
-                                
-                                    <a class="topic-icon" href="/training-material/topics/dev/tutorials/conda/slides.html">
-                                    <i class="fa fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
-                                </a>
-                                
-                            </td>
-                            <td>
-                                
-                                <a class="topic-icon" href="http://planemo.readthedocs.io/en/latest/writing_standalone.html">
-                                    <i class="fa fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
-                                </a>
-                                
-                            </td>
-
-                            
-
-                            
-                        
-                    </tr>
-                
             
-                
-                        <script type="application/ld+json">
-                            
-{
-  "@context": "http://schema.org",
-  "@type": "CreativeWork",
-  "name": "Tool Dependencies and Containers",
-  "accessModeSufficient": "visual",
-  "accessibilityControl": "fullMouseControl",
-  "accessibilityFeature": [
-    "alternativeText",
-    "tableOfContents"
-  ],
-  "audience": {
-    "@type": "EducationalAudience",
-    "educationalRole": "students"
-  },
-  "inLanguage": {
-    "@type": "Language",
-    "name": "English",
-    "alternateName": "en"
-  },
-  "interactivityType": "mixed",
-  "isAccessibleForFree": true,
-  "license": "https://github.com/galaxyproject/training-material/blob/master/LICENSE.md",
-  "learningResourceType": "tutorial",
-  "url": "",
-  "mentions": [
-    {
-      "@type": "Thing",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/containers/workflows/",
-      "name": "Workflow for Tool Dependencies and Containers tutorial"
-    }
-  ],
-  "timeRequired": "PT45M",
-  "contributor": [
-    {
-      "@type": "Person",
-      "name": "jmchilton"
-    },
-    {
-      "@type": "Person",
-      "name": "bgruening"
-    }
-  ],
-  "description": "The questions this tutorial addresses are:\n - What are the advantages of running my Galaxy tool inside of a container?\n - How does Galaxy find a container to run my tool in?\n - What are BioContainers and how are they related to Galaxy?\n\n\\nThe objectives are:\n - Explore the differences between containerizing Galaxy and tool execution.\n - Discuss the advantages of containerizing tools.\n - Learn to build best practice tools ready to be containerized.\n\n",
-  "hasPart": [
-    {
-      "@type": "CreativeWork",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/containers/tours/",
-      "name": "Slides for Tool Dependencies and Containers",
-      "learningResourceType": "slides",
-      "interactivityType": "expositive"
-    }
-  ]
-}
+          
+         </tr>
+         
+       
+    
+    
 
-                        </script>
-                    <tr>
-                        <td>
-                            Tool Dependencies and Containers
-                            
-                        </td>
-                        
-                            <td>
-                                
-                                    <a class="topic-icon" href="/training-material/topics/dev/tutorials/containers/slides.html">
-                                    <i class="fa fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
-                                </a>
-                                
-                            </td>
-                            <td>
-                                
-                                <a class="topic-icon" href="http://planemo.readthedocs.io/en/latest/writing_standalone.html">
-                                    <i class="fa fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
-                                </a>
-                                
-                            </td>
+    
+      
+        <tr>
+          <td class="tutorial_title">
+          Prerequisites for building software/conda packages
+          <div class="">
+          
+          
+          </div>
+          </td>
+          
+            <td> 
+    <span class="btn-group">
+        <a class="btn btn-default topic-icon" href="/training-material/topics/dev/tutorials/conda_sys/slides.html">
+            <i class="fab fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fconda_sys%2Fslides.html&edit-text=&act=url" title="">
+                Français
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fconda_sys%2Fslides.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fconda_sys%2Fslides.html&edit-text=&act=url" title="">
+                Español
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fconda_sys%2Fslides.html&edit-text=&act=url" title="">
+                Português
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fconda_sys%2Fslides.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+        
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fconda_sys%2Fslides.html&edit-text=&act=url" title="">
+            And more!
+        </a>
+    </ul>
+    </span>
 
-                            
 
-                            
-                        
-                    </tr>
-                
+ </td>
+            <td> 
+ </td>
+
             
-                
-                        <script type="application/ld+json">
-                            
-{
-  "@context": "http://schema.org",
-  "@type": "CreativeWork",
-  "name": "Tool Shed: sharing Galaxy tools",
-  "accessModeSufficient": "visual",
-  "accessibilityControl": "fullMouseControl",
-  "accessibilityFeature": [
-    "alternativeText",
-    "tableOfContents"
-  ],
-  "audience": {
-    "@type": "EducationalAudience",
-    "educationalRole": "students"
-  },
-  "inLanguage": {
-    "@type": "Language",
-    "name": "English",
-    "alternateName": "en"
-  },
-  "interactivityType": "mixed",
-  "isAccessibleForFree": true,
-  "license": "https://github.com/galaxyproject/training-material/blob/master/LICENSE.md",
-  "learningResourceType": "tutorial",
-  "url": "",
-  "mentions": [
-    {
-      "@type": "Thing",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/toolshed/workflows/",
-      "name": "Workflow for Tool Shed: sharing Galaxy tools tutorial"
-    }
-  ],
-  "timeRequired": "PT3H",
-  "contributor": [
-    {
-      "@type": "Person",
-      "name": "abretaud"
-    },
-    {
-      "@type": "Person",
-      "name": "loraine-gueguen"
-    },
-    {
-      "@type": "Person",
-      "name": "slegras"
-    },
-    {
-      "@type": "Person",
-      "name": "bebatut"
-    }
-  ],
-  "description": "The questions this tutorial addresses are:\n - What is a Tool Shed?\n - How to install tools and workflows from a Tool Shed into a Galaxy instance?\n - What are the Tool Shed repository types?\n - How to publish with Planemo?\n\n\\nThe objectives are:\n - Discover what is a Tool Shed\n - Be able to install tools and workflows from a Tool Shed into a Galaxy instance\n - Be able to publish tools with Planemo\n\n",
-  "hasPart": [
-    {
-      "@type": "CreativeWork",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/toolshed/tours/",
-      "name": "Slides for Tool Shed: sharing Galaxy tools",
-      "learningResourceType": "slides",
-      "interactivityType": "expositive"
-    }
-  ]
-}
-
-                        </script>
-                    <tr>
-                        <td>
-                            Tool Shed: sharing Galaxy tools
-                            
-                        </td>
-                        
-                            <td>
-                                
-                                    <a class="topic-icon" href="/training-material/topics/dev/tutorials/toolshed/slides.html">
-                                    <i class="fa fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
-                                </a>
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-
-                            
-
-                            
-                        
-                    </tr>
-                
             
-                
-                        <script type="application/ld+json">
-                            
-{
-  "@context": "http://schema.org",
-  "@type": "CreativeWork",
-  "name": "Tool development and integration into Galaxy",
-  "accessModeSufficient": "visual",
-  "accessibilityControl": "fullMouseControl",
-  "accessibilityFeature": [
-    "alternativeText",
-    "tableOfContents"
-  ],
-  "audience": {
-    "@type": "EducationalAudience",
-    "educationalRole": "students"
-  },
-  "inLanguage": {
-    "@type": "Language",
-    "name": "English",
-    "alternateName": "en"
-  },
-  "interactivityType": "mixed",
-  "isAccessibleForFree": true,
-  "license": "https://github.com/galaxyproject/training-material/blob/master/LICENSE.md",
-  "learningResourceType": "tutorial",
-  "url": "",
-  "mentions": [
-    {
-      "@type": "Thing",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/tool-integration/workflows/",
-      "name": "Workflow for Tool development and integration into Galaxy tutorial"
-    }
-  ],
-  "timeRequired": "PT6H",
-  "contributor": [
-    {
-      "@type": "Person",
-      "name": "shiltemann"
-    },
-    {
-      "@type": "Person",
-      "name": "bebatut"
-    },
-    {
-      "@type": "Person",
-      "name": "abretaud"
-    },
-    {
-      "@type": "Person",
-      "name": "jmchilton"
-    },
-    {
-      "@type": "Person",
-      "name": "nsoranzo"
-    },
-    {
-      "@type": "Person",
-      "name": "bgruening"
-    },
-    {
-      "@type": "Person",
-      "name": "lecorguille"
-    }
-  ],
-  "description": "The questions this tutorial addresses are:\n - What is a tool for Galaxy?\n - How to build a tool/wrapper with the good practices?\n - How to deal with the tool environment?\n\n\\nThe objectives are:\n - Discover what is a wrapper and its structure\n - Use the Planemo utilities to develop a good wrapper\n - Deal with the dependencies\n - Write functional tests\n - Make a tool ready for publishing in a ToolShed\n\n",
-  "hasPart": [
-    {
-      "@type": "CreativeWork",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/tool-integration/tours/",
-      "name": "Slides for Tool development and integration into Galaxy",
-      "learningResourceType": "slides",
-      "interactivityType": "expositive"
-    }
-  ]
-}
+          
+         </tr>
+         
+       
+    
+    
 
-                        </script>
-                    <tr>
-                        <td>
-                            Tool development and integration into Galaxy
-                            
-                        </td>
-                        
-                            <td>
-                                
-                                    <a class="topic-icon" href="/training-material/topics/dev/tutorials/tool-integration/slides.html">
-                                    <i class="fa fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
-                                </a>
-                                
-                            </td>
-                            <td>
-                                
-                                <a class="topic-icon" href="http://planemo.readthedocs.io/en/latest/writing_standalone.html">
-                                    <i class="fa fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
-                                </a>
-                                
-                            </td>
+    
+      
+        <tr>
+          <td class="tutorial_title">
+          Scripting Galaxy using the API and BioBlend
+          <div class="">
+          
+          
+          </div>
+          </td>
+          
+            <td> 
+    <span class="btn-group">
+        <a class="btn btn-default topic-icon" href="/training-material/topics/dev/tutorials/bioblend-api/slides.html">
+            <i class="fab fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fbioblend-api%2Fslides.html&edit-text=&act=url" title="">
+                Français
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fbioblend-api%2Fslides.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fbioblend-api%2Fslides.html&edit-text=&act=url" title="">
+                Español
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fbioblend-api%2Fslides.html&edit-text=&act=url" title="">
+                Português
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fbioblend-api%2Fslides.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+        
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fbioblend-api%2Fslides.html&edit-text=&act=url" title="">
+            And more!
+        </a>
+    </ul>
+    </span>
 
-                            
 
-                            
-                        
-                    </tr>
-                
+ </td>
+            <td> 
+ </td>
+
             
-                
-                        <script type="application/ld+json">
-                            
-{
-  "@context": "http://schema.org",
-  "@type": "CreativeWork",
-  "name": "Visualizations: charts plugins",
-  "accessModeSufficient": "visual",
-  "accessibilityControl": "fullMouseControl",
-  "accessibilityFeature": [
-    "alternativeText",
-    "tableOfContents"
-  ],
-  "audience": {
-    "@type": "EducationalAudience",
-    "educationalRole": "students"
-  },
-  "inLanguage": {
-    "@type": "Language",
-    "name": "English",
-    "alternateName": "en"
-  },
-  "interactivityType": "mixed",
-  "isAccessibleForFree": true,
-  "license": "https://github.com/galaxyproject/training-material/blob/master/LICENSE.md",
-  "learningResourceType": "tutorial",
-  "url": "",
-  "mentions": [
-    {
-      "@type": "Thing",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/visualization-charts/workflows/",
-      "name": "Workflow for Visualizations: charts plugins tutorial"
-    }
-  ],
-  "timeRequired": "PT1H",
-  "contributor": [
-    {
-      "@type": "Person",
-      "name": "shiltemann"
-    },
-    {
-      "@type": "Person",
-      "name": "yhoogstrate"
-    },
-    {
-      "@type": "Person",
-      "name": "bgruening"
-    },
-    {
-      "@type": "Person",
-      "name": "guerler"
-    }
-  ],
-  "description": "The questions this tutorial addresses are:\n - How can I make a custom plugin for Charts?\n\n\\nThe objectives are:\n - Learn how to add custom javascript plugins to the Galaxy Charts framework\n\n",
-  "hasPart": [
-    {
-      "@type": "CreativeWork",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/visualization-charts/tours/",
-      "name": "Slides for Visualizations: charts plugins",
-      "learningResourceType": "slides",
-      "interactivityType": "expositive"
-    }
-  ]
-}
-
-                        </script>
-                    <tr>
-                        <td>
-                            Visualizations: charts plugins
-                            
-                        </td>
-                        
-                            <td>
-                                
-                                    <a class="topic-icon" href="/training-material/topics/dev/tutorials/visualization-charts/slides.html">
-                                    <i class="fa fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
-                                </a>
-                                
-                            </td>
-                            <td>
-                                
-                                    <span class="btn-group">
-                                        <a href="/training-material/topics/dev/tutorials/visualization-charts/tutorial.html" class="btn btn-default" title="Where to run the tutorial">
-                                            <i class="fa fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
-                                        </a>
-                                        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                        
-                                            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-charts%2Ftutorial.html&edit-text=&act=url" title="">
-                                                FR
-                                            </a>
-                                        
-                                            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-charts%2Ftutorial.html&edit-text=&act=url" title="">
-                                                JA
-                                            </a>
-                                        
-                                            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-charts%2Ftutorial.html&edit-text=&act=url" title="">
-                                                ES
-                                            </a>
-                                        
-                                            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-charts%2Ftutorial.html&edit-text=&act=url" title="">
-                                                PT
-                                            </a>
-                                        
-                                            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-charts%2Ftutorial.html&edit-text=&act=url" title="">
-                                                AR
-                                            </a>
-                                        
-                                    </span>
-                                
-                            </td>
-
-                            
-
-                            
-                        
-                    </tr>
-                
             
-                
-                        <script type="application/ld+json">
-                            
-{
-  "@context": "http://schema.org",
-  "@type": "CreativeWork",
-  "name": "Visualizations: generic plugins",
-  "accessModeSufficient": "visual",
-  "accessibilityControl": "fullMouseControl",
-  "accessibilityFeature": [
-    "alternativeText",
-    "tableOfContents"
-  ],
-  "audience": {
-    "@type": "EducationalAudience",
-    "educationalRole": "students"
-  },
-  "inLanguage": {
-    "@type": "Language",
-    "name": "English",
-    "alternateName": "en"
-  },
-  "interactivityType": "mixed",
-  "isAccessibleForFree": true,
-  "license": "https://github.com/galaxyproject/training-material/blob/master/LICENSE.md",
-  "learningResourceType": "tutorial",
-  "url": "",
-  "mentions": [
-    {
-      "@type": "Thing",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/visualization-generic/workflows/",
-      "name": "Workflow for Visualizations: generic plugins tutorial"
-    }
-  ],
-  "timeRequired": "PT90M",
-  "contributor": [
-    {
-      "@type": "Person",
-      "name": "shiltemann"
-    },
-    {
-      "@type": "Person",
-      "name": "yhoogstrate"
-    }
-  ],
-  "description": "The questions this tutorial addresses are:\n - How can visualization plugins benefit science?\n\n\\nThe objectives are:\n - Implement a first Galaxy visualization\n - Understand the client side vs. server side principle\n\n",
-  "hasPart": [
-    {
-      "@type": "CreativeWork",
-      "url": "https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/visualization-generic/tours/",
-      "name": "Slides for Visualizations: generic plugins",
-      "learningResourceType": "slides",
-      "interactivityType": "expositive"
-    }
-  ]
-}
+          
+         </tr>
+         
+       
+    
+    
 
-                        </script>
-                    <tr>
-                        <td>
-                            Visualizations: generic plugins
-                            
-                        </td>
-                        
-                            <td>
-                                
-                                    <a class="topic-icon" href="/training-material/topics/dev/tutorials/visualization-generic/slides.html">
-                                    <i class="fa fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
-                                </a>
-                                
-                            </td>
-                            <td>
-                                
-                                    <span class="btn-group">
-                                        <a href="/training-material/topics/dev/tutorials/visualization-generic/tutorial.html" class="btn btn-default" title="Where to run the tutorial">
-                                            <i class="fa fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
-                                        </a>
-                                        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                        
-                                            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-generic%2Ftutorial.html&edit-text=&act=url" title="">
-                                                FR
-                                            </a>
-                                        
-                                            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-generic%2Ftutorial.html&edit-text=&act=url" title="">
-                                                JA
-                                            </a>
-                                        
-                                            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-generic%2Ftutorial.html&edit-text=&act=url" title="">
-                                                ES
-                                            </a>
-                                        
-                                            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-generic%2Ftutorial.html&edit-text=&act=url" title="">
-                                                PT
-                                            </a>
-                                        
-                                            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-generic%2Ftutorial.html&edit-text=&act=url" title="">
-                                                AR
-                                            </a>
-                                        
-                                    </span>
-                                
-                            </td>
+    
+      
+        <tr>
+          <td class="tutorial_title">
+          Tool Dependencies and Conda
+          <div class="">
+          
+          
+          </div>
+          </td>
+          
+            <td> 
+    <span class="btn-group">
+        <a class="btn btn-default topic-icon" href="/training-material/topics/dev/tutorials/conda/slides.html">
+            <i class="fab fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fconda%2Fslides.html&edit-text=&act=url" title="">
+                Français
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fconda%2Fslides.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fconda%2Fslides.html&edit-text=&act=url" title="">
+                Español
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fconda%2Fslides.html&edit-text=&act=url" title="">
+                Português
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fconda%2Fslides.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+        
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fconda%2Fslides.html&edit-text=&act=url" title="">
+            And more!
+        </a>
+    </ul>
+    </span>
 
-                            
 
-                            
-                        
-                    </tr>
-                
+ </td>
+            <td> 
+<a class="topic-icon" href="http://planemo.readthedocs.io/en/latest/writing_standalone.html">
+    <i class="fas fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
+</a>
+
+ </td>
+
             
-        </table>
+            
+          
+         </tr>
+         
+       
+    
+    
+
+    
+      
+        <tr>
+          <td class="tutorial_title">
+          Tool Dependencies and Containers
+          <div class="">
+          
+          
+          </div>
+          </td>
+          
+            <td> 
+    <span class="btn-group">
+        <a class="btn btn-default topic-icon" href="/training-material/topics/dev/tutorials/containers/slides.html">
+            <i class="fab fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fcontainers%2Fslides.html&edit-text=&act=url" title="">
+                Français
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fcontainers%2Fslides.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fcontainers%2Fslides.html&edit-text=&act=url" title="">
+                Español
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fcontainers%2Fslides.html&edit-text=&act=url" title="">
+                Português
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fcontainers%2Fslides.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+        
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fcontainers%2Fslides.html&edit-text=&act=url" title="">
+            And more!
+        </a>
+    </ul>
+    </span>
+
+
+ </td>
+            <td> 
+<a class="topic-icon" href="http://planemo.readthedocs.io/en/latest/writing_standalone.html">
+    <i class="fas fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
+</a>
+
+ </td>
+
+            
+            
+          
+         </tr>
+         
+       
+    
+    
+
+    
+      
+        <tr>
+          <td class="tutorial_title">
+          Tool development and integration into Galaxy
+          <div class="">
+          
+          
+          </div>
+          </td>
+          
+            <td> 
+    <span class="btn-group">
+        <a class="btn btn-default topic-icon" href="/training-material/topics/dev/tutorials/tool-integration/slides.html">
+            <i class="fab fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Ftool-integration%2Fslides.html&edit-text=&act=url" title="">
+                Français
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Ftool-integration%2Fslides.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Ftool-integration%2Fslides.html&edit-text=&act=url" title="">
+                Español
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Ftool-integration%2Fslides.html&edit-text=&act=url" title="">
+                Português
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Ftool-integration%2Fslides.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+        
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Ftool-integration%2Fslides.html&edit-text=&act=url" title="">
+            And more!
+        </a>
+    </ul>
+    </span>
+
+
+ </td>
+            <td> 
+<a class="topic-icon" href="http://planemo.readthedocs.io/en/latest/writing_standalone.html">
+    <i class="fas fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
+</a>
+
+ </td>
+
+            
+            
+          
+         </tr>
+         
+       
+    
+    
+
+    
+      
+        <tr>
+          <td class="tutorial_title">
+          Tool Shed: sharing Galaxy tools
+          <div class="">
+          
+          
+          </div>
+          </td>
+          
+            <td> 
+    <span class="btn-group">
+        <a class="btn btn-default topic-icon" href="/training-material/topics/dev/tutorials/toolshed/slides.html">
+            <i class="fab fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Ftoolshed%2Fslides.html&edit-text=&act=url" title="">
+                Français
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Ftoolshed%2Fslides.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Ftoolshed%2Fslides.html&edit-text=&act=url" title="">
+                Español
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Ftoolshed%2Fslides.html&edit-text=&act=url" title="">
+                Português
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Ftoolshed%2Fslides.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+        
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Ftoolshed%2Fslides.html&edit-text=&act=url" title="">
+            And more!
+        </a>
+    </ul>
+    </span>
+
+
+ </td>
+            <td> 
+ </td>
+
+            
+            
+          
+         </tr>
+         
+       
+    
+    
+
+    
+      
+        <tr>
+          <td class="tutorial_title">
+          Visualizations: generic plugins
+          <div class="">
+          
+          
+          </div>
+          </td>
+          
+            <td> 
+    <span class="btn-group">
+        <a class="btn btn-default topic-icon" href="/training-material/topics/dev/tutorials/visualization-generic/slides.html">
+            <i class="fab fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-generic%2Fslides.html&edit-text=&act=url" title="">
+                Français
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-generic%2Fslides.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-generic%2Fslides.html&edit-text=&act=url" title="">
+                Español
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-generic%2Fslides.html&edit-text=&act=url" title="">
+                Português
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-generic%2Fslides.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+        
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-generic%2Fslides.html&edit-text=&act=url" title="">
+            And more!
+        </a>
+    </ul>
+    </span>
+
+
+ </td>
+            <td> 
+    <span class="btn-group">
+        <a href="/training-material/topics/dev/tutorials/visualization-generic/tutorial.html" class="btn btn-default" title="Follow the tutorial">
+            <i class="fas fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Follow the tutorial in a different language">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-generic%2Ftutorial.html&edit-text=&act=url" title="">
+                Français
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-generic%2Ftutorial.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-generic%2Ftutorial.html&edit-text=&act=url" title="">
+                Español
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-generic%2Ftutorial.html&edit-text=&act=url" title="">
+                Português
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-generic%2Ftutorial.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+        
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-generic%2Ftutorial.html&edit-text=&act=url" title="">
+            And more!
+        </a>
+    </span>
+
+ </td>
+
+            
+            
+          
+         </tr>
+         
+       
+    
+    
+
+    
+      
+        <tr>
+          <td class="tutorial_title">
+          Visualizations: JavaScript plugins
+          <div class="">
+          
+          
+          </div>
+          </td>
+          
+            <td> 
+    <span class="btn-group">
+        <a class="btn btn-default topic-icon" href="/training-material/topics/dev/tutorials/visualization-charts/slides.html">
+            <i class="fab fa-slideshare" aria-hidden="true"></i><span class="visually-hidden">slides</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-charts%2Fslides.html&edit-text=&act=url" title="">
+                Français
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-charts%2Fslides.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-charts%2Fslides.html&edit-text=&act=url" title="">
+                Español
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-charts%2Fslides.html&edit-text=&act=url" title="">
+                Português
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-charts%2Fslides.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+        
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-charts%2Fslides.html&edit-text=&act=url" title="">
+            And more!
+        </a>
+    </ul>
+    </span>
+
+
+ </td>
+            <td> 
+    <span class="btn-group">
+        <a href="/training-material/topics/dev/tutorials/visualization-charts/tutorial.html" class="btn btn-default" title="Follow the tutorial">
+            <i class="fas fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Follow the tutorial in a different language">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-charts%2Ftutorial.html&edit-text=&act=url" title="">
+                Français
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-charts%2Ftutorial.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-charts%2Ftutorial.html&edit-text=&act=url" title="">
+                Español
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-charts%2Ftutorial.html&edit-text=&act=url" title="">
+                Português
+            </a>
+        
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-charts%2Ftutorial.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+        
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdev%2Ftutorials%2Fvisualization-charts%2Ftutorial.html&edit-text=&act=url" title="">
+            And more!
+        </a>
+    </span>
+
+ </td>
+
+            
+            
+          
+         </tr>
+         
+       
+    
+  </tbody>
+</table>
+
+
+
+            
+        </div>
 
         
 
         <h2 id="maintainers">Maintainers</h2>
         <p>This material is maintained by:</p>
-        <ul>
         
         
-            <li>
-                <a href="/training-material/hall-of-fame#lecorguille">Gildas Le Corguillé</a>
-                
-            </li>
-        
-            <li>
-                <a href="/training-material/hall-of-fame#bebatut">Bérénice Batut</a>
-                
-            </li>
-        
-        </ul>
+
+<a href="/training-material/hall-of-fame/lecorguille/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/lecorguille" alt="Gildas Le Corguillé">Gildas Le Corguillé</a>, <a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/bebatut" alt="Bérénice Batut">Bérénice Batut</a>, <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/hexylena" alt="Helena Rasche">Helena Rasche</a>
+
+
 
         <p>
             <em>For any question related to this topic and the content, you can contact them or visit our <a href="https://gitter.im/Galaxy-Training-Network/Lobby">Gitter channel</a>.</em>
@@ -1338,105 +1164,14 @@
 
         <h2 id="contributors">Contributors</h2>
         <p>This material was contributed to by:</p>
-
-        <!-- get list of unique contributors for all materials in the topic -->
+        
+        
         
         
 
-        <ul>
-        
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#bebatut">Bérénice Batut</a>
-            </li>
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#odoppelt">Olivia Doppelt-Azeroual</a>
-            </li>
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#fmareuil">Fabien Mareuil</a>
-            </li>
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#shiltemann">Saskia Hiltemann</a>
-            </li>
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#jmchilton">John Chilton</a>
-            </li>
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#bgruening">Björn Grüning</a>
-            </li>
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#erasche">Helena Rasche</a>
-            </li>
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#blankclemens">Clemens Blank</a>
-            </li>
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#martenson">Martin Čech</a>
-            </li>
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#abretaud">Anthony Bretaudeau</a>
-            </li>
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#cmonjeau">Cyril Monjeaud</a>
-            </li>
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#nsoranzo">Nicola Soranzo</a>
-            </li>
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#hmenager">Hervé Ménager</a>
-            </li>
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#loraine-gueguen">Loraine Guéguen</a>
-            </li>
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#slegras">Stéphanie Legras</a>
-            </li>
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#lecorguille">Gildas Le Corguillé</a>
-            </li>
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#yhoogstrate">Youri Hoogstrate</a>
-            </li>
-        
-            
-            <li>
-                <a href="/training-material/hall-of-fame#guerler">Aysam Guerler</a>
-            </li>
-        
-        </ul>
+<a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/bebatut" alt="Bérénice Batut">Bérénice Batut</a>, <a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/shiltemann" alt="Saskia Hiltemann">Saskia Hiltemann</a>, <a href="/training-material/hall-of-fame/gmauro/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/gmauro" alt="Gianmauro Cuccuru">Gianmauro Cuccuru</a>, <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/hexylena" alt="Helena Rasche">Helena Rasche</a>, <a href="/training-material/hall-of-fame/jmchilton/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/jmchilton" alt="John Chilton">John Chilton</a>, <a href="/training-material/hall-of-fame/bgruening/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/bgruening" alt="Björn Grüning">Björn Grüning</a>, <a href="/training-material/hall-of-fame/blankclemens/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/blankclemens" alt="Clemens Blank">Clemens Blank</a>, <a href="/training-material/hall-of-fame/martenson/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/martenson" alt="Martin Čech">Martin Čech</a>, <a href="/training-material/hall-of-fame/abretaud/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/abretaud" alt="Anthony Bretaudeau">Anthony Bretaudeau</a>, <a href="/training-material/hall-of-fame/cmonjeau/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/cmonjeau" alt="Cyril Monjeaud">Cyril Monjeaud</a>, <a href="/training-material/hall-of-fame/odoppelt/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/odoppelt" alt="Olivia Doppelt-Azeroual">Olivia Doppelt-Azeroual</a>, <a href="/training-material/hall-of-fame/fmareuil/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/fmareuil" alt="Fabien Mareuil">Fabien Mareuil</a>, <a href="/training-material/hall-of-fame/nsoranzo/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/nsoranzo" alt="Nicola Soranzo">Nicola Soranzo</a>, <a href="/training-material/hall-of-fame/dannon/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/dannon" alt="Dannon Baker">Dannon Baker</a>, <a href="/training-material/hall-of-fame/hmenager/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/hmenager" alt="Hervé Ménager">Hervé Ménager</a>, <a href="/training-material/hall-of-fame/lecorguille/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/lecorguille" alt="Gildas Le Corguillé">Gildas Le Corguillé</a>, <a href="/training-material/hall-of-fame/loraine-gueguen/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/loraine-gueguen" alt="Loraine Guéguen">Loraine Guéguen</a>, <a href="/training-material/hall-of-fame/slegras/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/slegras" alt="Stéphanie Legras">Stéphanie Legras</a>, <a href="/training-material/hall-of-fame/yhoogstrate/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/yhoogstrate" alt="Youri Hoogstrate">Youri Hoogstrate</a>, <a href="/training-material/hall-of-fame/guerler/" class="contributor-badge"><img src="https://avatars.githubusercontent.com/guerler" alt="Aysam Guerler">Aysam Guerler</a>
+
+
 
         
     </section>
@@ -1448,8 +1183,15 @@
             The <a href="https://galaxyproject.org/teach/gtn/">Galaxy Training Network</a>
             provides researchers with online training materials, connects them with local trainers, and helps promoting open data analysis practices worldwide.
         </p>
+        <p>
+    The content of the tutorials and website is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
+        <p>This is revision <a href="https://github.com/galaxyproject/training-material/commit/c0fb78a0b299329cd9bc9a6ed844d05e99ee7491">c0fb78a0b299329cd9bc9a6ed844d05e99ee7491</a></p>
     </div>
 </footer>
+
+
+
 
 
     </body>
@@ -1460,4 +1202,34 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="/training-material/assets/js/bootstrap-toc.min.js"></script>
     <script type="text/javascript" src="/training-material/assets/js/main.js"></script>
+    <script type="text/javascript" src="/training-material/assets/js/theme.js"></script>
+
+    <script type="text/javascript" src="/training-material/assets/js/clipboard.min.js"></script>
+    <script type="text/javascript">
+    var snippets=document.querySelectorAll('div.highlight');
+    [].forEach.call(snippets,function(snippet){
+        snippet.firstChild.insertAdjacentHTML('beforebegin','<button class="btn btn-light" data-clipboard-snippet><i class="fa fa-copy"></i>&nbsp;Copy</button>');
+    });
+
+    var clipboardSnippets=new ClipboardJS('[data-clipboard-snippet]',{
+        target:function(trigger){return trigger.nextElementSibling;
+    }});
+    </script>
+    
+    <script type="text/javascript" src="/training-material/assets/js/list.min.js"></script>
+    <script type="text/javascript" src="/training-material/assets/js/topic.js"></script>
+    
+
+    <script type="text/javascript">
+        if(window.location.hostname === "galaxyproject.github.io") {
+            // Redirect
+            var redirect = "https://training.galaxyproject.org" + window.location.pathname + window.location.search;
+            $('div.container.main-content').prepend("<div class='alert alert-warning'><strong>Note: </strong>This content has a new home at <a href=\"" + redirect + "\">" + redirect + "</a>, which you will be redirected to in 5 seconds.</div>");
+
+            window.setTimeout(function(){
+                window.location.href = redirect;
+            }, 5000)
+
+        }
+    </script>
 </html>
