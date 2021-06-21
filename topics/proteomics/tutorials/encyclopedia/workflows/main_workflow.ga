@@ -1,11 +1,11 @@
 {
     "a_galaxy_workflow": "true",
-    "annotation": "",
+    "annotation": "encyclopedia",
     "format-version": "0.1",
     "name": "May19 EncyclopeDIA raw inputs",
     "steps": {
         "0": {
-            "annotation": "",
+            "annotation": "encyclopedia",
             "content_id": null,
             "errors": null,
             "id": 0,
@@ -427,7 +427,7 @@
             ]
         }
     },
-    "tags": [],
+    "tags": ["proteomics"],
     "uuid": "effc8645-4949-46d9-9c6d-fe2d19fbb73a",
     "version": 6
 }
